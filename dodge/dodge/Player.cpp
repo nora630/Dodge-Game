@@ -15,8 +15,8 @@
 
 Player::Player(Game* game)
 	:Actor(game)
-	, posX(3)
-	, posY(3)
+	, playerColum(3)
+	, playerRow(3)
 	, keyInput(true)
 	, mRightSpeed(0.0f)
 	, mDownSpeed(0.0f)
@@ -30,7 +30,7 @@ Player::Player(Game* game)
 	};
 	asc->SetAnimTextures(anims);
 
-	SetPosition(Vector2(StartX + TileSize / 2.0f + posX * TileSize, StartY + posY * TileSize));
+	SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
 	SetScale(0.1f);
 }
 
@@ -67,9 +67,9 @@ void Player::UpdateActor(float deltaTime)
 		//SetPosition(pos);
 		if (dirX == 1)
 		{
-			if (pos.x > StartX + TileSize / 2.0f + posX * TileSize)
+			if (pos.x > StartX + TileSize / 2.0f + playerColum * TileSize)
 			{
-				SetPosition(Vector2(StartX + TileSize / 2.0f + posX * TileSize, StartY + posY * TileSize));
+				SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
 				mRightSpeed = 0;
 				dirX = 0;
 				keyInput = true;
@@ -81,9 +81,9 @@ void Player::UpdateActor(float deltaTime)
 		} 
 		if (dirX == -1)
 		{
-			if (pos.x < StartX + TileSize / 2.0f + posX * TileSize)
+			if (pos.x < StartX + TileSize / 2.0f + playerColum * TileSize)
 			{
-				SetPosition(Vector2(StartX + TileSize / 2.0f + posX * TileSize, StartY + posY * TileSize));
+				SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
 				mRightSpeed = 0;
 				dirX = 0;
 				keyInput = true;
@@ -94,9 +94,9 @@ void Player::UpdateActor(float deltaTime)
 		}
 		if (dirY == 1)
 		{
-			if (pos.y > StartY + posY * TileSize)
+			if (pos.y > StartY + playerRow * TileSize)
 			{
-				SetPosition(Vector2(StartX + TileSize / 2.0f + posX * TileSize, StartY + posY * TileSize));
+				SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
 				mDownSpeed = 0;
 				dirY = 0;
 				keyInput = true;
@@ -107,9 +107,9 @@ void Player::UpdateActor(float deltaTime)
 		}
 		if (dirY == -1)
 		{
-			if (pos.y < StartY + posY * TileSize) 
+			if (pos.y < StartY + playerRow * TileSize) 
 			{
-				SetPosition(Vector2(StartX + TileSize / 2.0f + posX * TileSize, StartY + posY * TileSize));
+				SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
 				mDownSpeed = 0;
 				dirY = 0;
 				keyInput = true;
@@ -125,34 +125,38 @@ void Player::ProcessKeyboard(const uint8_t* state)
 {
 	if (keyInput) {
 		// right/left
-		if (state[SDL_SCANCODE_D] && posX < NumCols - 1)
+		if (state[SDL_SCANCODE_D] && playerColum < NumCols - 1)
 		{
-			++posX;
+			++playerColum;
 			mRightSpeed = 512.0f;
 			dirX = 1;
 			keyInput = false;
+			return;
 		}
-		if (state[SDL_SCANCODE_A] && posX > 0)
+		if (state[SDL_SCANCODE_A] && playerColum > 0)
 		{
-			--posX;
+			--playerColum;
 			mRightSpeed = -512.0f;
 			dirX = -1;
 			keyInput = false;
+			return;
 		}
 		// up/down
-		if (state[SDL_SCANCODE_S] && posY < NumRows - 1)
+		if (state[SDL_SCANCODE_S] && playerRow < NumRows - 1)
 		{
-			++posY;
+			++playerRow;
 			mDownSpeed = 512.0f;
 			dirY = 1;
 			keyInput = false;
+			return;
 		}
-		if (state[SDL_SCANCODE_W] && posY > 0)
+		if (state[SDL_SCANCODE_W] && playerRow > 0)
 		{
-			--posY;
+			--playerRow;
 			mDownSpeed = -512.0f;
 			dirY = -1;
 			keyInput = false;
+			return;
 		}
 	}
 }

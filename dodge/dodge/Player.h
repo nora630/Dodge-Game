@@ -17,8 +17,9 @@ public:
 	void ProcessKeyboard(const uint8_t* state);
 
 private:
-	size_t posX;
-	size_t posY;
+	// プレイヤーが盤面の何番目の行、列にいるのか保持する
+	size_t playerColum;
+	size_t playerRow;
 	bool keyInput;
 	float mRightSpeed;
 	float mDownSpeed;
