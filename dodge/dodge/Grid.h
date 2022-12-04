@@ -28,18 +28,16 @@ class Grid : public Actor
 public:
 	Grid(class Game* game);
 	void UpdateActor(float deltaTime) override;
-	/*
-	const float GetStartX() const { return StartX; };
-	const float GetStartY() const { return StartY; };
-	const size_t GetNumTiles() const { return NumTiles; };
-	const size_t GetNumRows() const { return NumRows; };
-	const float GetTileSize() const { return TileSize; };
-	*/
 
 private:
 	// 2D vector of tiles in grid
 	std::vector<std::vector<class Tile*>> mTiles;
+	
+	// 竹が次にリスポーンする時間
+	float mNextBamboo;
 
+	// 竹のリスポーン間隔
+	const float BambooTime = 1.5f;
 	
 };
 

@@ -156,6 +156,7 @@ xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimSpriteComponent.cpp" />
+    <ClCompile Include="Bamboo.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -163,17 +164,20 @@ xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="AnimSpriteComponent.h" />
+    <ClInclude Include="Bamboo.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Tile.h" />
   </ItemGroup>

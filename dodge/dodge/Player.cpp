@@ -5,7 +5,7 @@
 // Released under the BSD License
 // ----------------------------------------------------------------
 
-// プレイヤーの動かし方と動かせる範囲を制限できるよう追加
+// プレイヤー(パンダ)の動かし方と動かせる範囲を制限できるよう追加
 
 
 #include "Player.h"
@@ -15,13 +15,13 @@
 
 Player::Player(Game* game)
 	:Actor(game)
-	, playerColum(3)
-	, playerRow(3)
-	, keyInput(true)
+	, mPlayerColum(3)
+	, mPlayerRow(3)
+	, mKeyInput(true)
 	, mRightSpeed(0.0f)
 	, mDownSpeed(0.0f)
-	, dirX(0)
-	, dirY(0)
+	, mDirX(0)
+	, mDirY(0)
 {
 	// Create an animated sprite component
 	AnimSpriteComponent* asc = new AnimSpriteComponent(this);
@@ -30,7 +30,7 @@ Player::Player(Game* game)
 	};
 	asc->SetAnimTextures(anims);
 
-	SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
+	SetPosition(Vector2(StartX + TileSize / 2.0f + mPlayerColum * TileSize, StartY + mPlayerRow * TileSize));
 	SetScale(0.1f);
 }
 
@@ -40,79 +40,60 @@ void Player::UpdateActor(float deltaTime)
 	// Update position based on speeds and delta time
 
 	
-	if (keyInput == false)
+	if (mKeyInput == false)
 	{
 		Vector2 pos = GetPosition();
 		pos.x += mRightSpeed * deltaTime;
 		pos.y += mDownSpeed * deltaTime;
-		// Restrict position to left half of screen
-		/*
-		if (pos.x < 0.0f)
+		
+		if (mDirX == 1)
 		{
-			pos.x = 0.0f;
-		}
-		else if (pos.x > 1024.0f)
-		{
-			pos.x = 1024.0f;
-		}
-		if (pos.y < 0.0f)
-		{
-			pos.y = 0.0f;
-		}
-		else if (pos.y > 768.0f)
-		{
-			pos.y = 768.0f;
-		}
-		*/
-		//SetPosition(pos);
-		if (dirX == 1)
-		{
-			if (pos.x > StartX + TileSize / 2.0f + playerColum * TileSize)
+			if (pos.x > StartX + TileSize / 2.0f + mPlayerColum * TileSize)
 			{
-				SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
+				SetPosition(Vector2(StartX + TileSize / 2.0f + mPlayerColum * TileSize, StartY + mPlayerRow * TileSize));
 				mRightSpeed = 0;
-				dirX = 0;
-				keyInput = true;
+				mDirX = 0;
+				mKeyInput = true;
 			}
 			else {
 				SetPosition(pos);
 			}
 			
 		} 
-		if (dirX == -1)
+		if (mDirX == -1)
 		{
-			if (pos.x < StartX + TileSize / 2.0f + playerColum * TileSize)
+			if (pos.x < StartX + TileSize / 2.0f + mPlayerColum * TileSize)
 			{
-				SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
+				SetPosition(Vector2(StartX + TileSize / 2.0f + mPlayerColum * TileSize, StartY + mPlayerRow * TileSize));
 				mRightSpeed = 0;
-				dirX = 0;
-				keyInput = true;
+				mDirX = 0;
+				mKeyInput = true;
 			}
 			else {
 				SetPosition(pos);
 			}
 		}
-		if (dirY == 1)
+		if (mDirY == 1)
 		{
-			if (pos.y > StartY + playerRow * TileSize)
+			if (pos.y > StartY + mPlayerRow * TileSize)
 			{
-				SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
+				SetPosition(Vector2(StartX + TileSize / 2.0f + mPlayerColum * TileSize, StartY + mPlayerRow * TileSize));
 				mDownSpeed = 0;
-				dirY = 0;
-				keyInput = true;
+				mDirY = 0;
+				mKeyInput = true;
 			}
 			else {
 				SetPosition(pos);
 			}
 		}
-		if (dirY == -1)
+		if (mDirY == -1)
 		{
-			if (pos.y < StartY + playerRow * TileSize) 
+			if (pos.y < StartY + mPlayerRow * TileSize) 
 			{
-				SetPosition(Vector2(StartX + TileSize / 2.0f + playerColum * TileSize, StartY + playerRow * TileSize));
+				SetPosition(Vector2(StartX + TileSize / 2.0f + mPlayerColum * TileSize, StartY + mPlayerRow * TileSize));
 				mDownSpeed = 0;
-				dirY = 0;
-				keyInput = true;
+				mDirY = 0;
+				mKeyInput = true;
 			}
 			else {
 				SetPosition(pos);
@@ -123,39 +104,39 @@ void Player::UpdateActor(float deltaTime)
 
 void Player::ProcessKeyboard(const uint8_t* state)
 {
-	if (keyInput) {
+	if (mKeyInput) {
 		// right/left
-		if (state[SDL_SCANCODE_D] && playerColum < NumCols - 1)
+		if (state[SDL_SCANCODE_D] && mPlayerColum < NumCols - 1)
 		{
-			++playerColum;
+			++mPlayerColum;
 			mRightSpeed = 512.0f;
-			dirX = 1;
-			keyInput = false;
+			mDirX = 1;
+			mKeyInput = false;
 			return;
 		}
-		if (state[SDL_SCANCODE_A] && playerColum > 0)
+		if (state[SDL_SCANCODE_A] && mPlayerColum > 0)
 		{
-			--playerColum;
+			--mPlayerColum;
 			mRightSpeed = -512.0f;
-			dirX = -1;
-			keyInput = false;
+			mDirX = -1;
+			mKeyInput = false;
 			return;
 		}
 		// up/down
-		if (state[SDL_SCANCODE_S] && playerRow < NumRows - 1)
+		if (state[SDL_SCANCODE_S] && mPlayerRow < NumRows - 1)
 		{
-			++playerRow;
+			++mPlayerRow;
 			mDownSpeed = 512.0f;
-			dirY = 1;
-			keyInput = false;
+			mDirY = 1;
+			mKeyInput = false;
 			return;
 		}
-		if (state[SDL_SCANCODE_W] && playerRow > 0)
+		if (state[SDL_SCANCODE_W] && mPlayerRow > 0)
 		{
-			--playerRow;
+			--mPlayerRow;
 			mDownSpeed = -512.0f;
-			dirY = -1;
-			keyInput = false;
+			mDirY = -1;
+			mKeyInput = false;
 			return;
 		}
 	}

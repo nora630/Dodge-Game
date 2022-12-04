@@ -8,10 +8,12 @@
 
 #include "Grid.h"
 #include "Tile.h"
+#include "Bamboo.h"
 
 
 Grid::Grid(class Game* game)
 	:Actor(game)
+	, mNextBamboo(1.5f)
 {
 	// 8 rows, 8 columns
 	mTiles.resize(NumRows);
@@ -37,6 +39,13 @@ Grid::Grid(class Game* game)
 void Grid::UpdateActor(float deltaTime)
 {
 	Actor::UpdateActor(deltaTime);
+
+	mNextBamboo -= deltaTime;
+	if (mNextBamboo <= 0.0f)
+	{
+		new Bamboo(GetGame());
+		mNextBamboo += BambooTime;
+	}
 
 }
 

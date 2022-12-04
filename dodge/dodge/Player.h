@@ -18,12 +18,17 @@ public:
 
 private:
 	// プレイヤーが盤面の何番目の行、列にいるのか保持する
-	size_t playerColum;
-	size_t playerRow;
-	bool keyInput;
+	size_t mPlayerColum;
+	size_t mPlayerRow;
+
+	// 入力受付のフラグ、trueならばキー入力を受け取る
+	bool mKeyInput;
+
 	float mRightSpeed;
 	float mDownSpeed;
-	int dirX;
-	int dirY;
+
+	// x,y軸それぞれの方向ベクトル、1ならば正、-1ならば負の方向
+	int mDirX;
+	int mDirY;
 
 };

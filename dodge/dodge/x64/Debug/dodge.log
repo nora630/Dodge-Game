@@ -1,4 +1,8 @@
-﻿  Player.cpp
+﻿  Bamboo.cpp
+  Game.cpp
+  Grid.cpp
+  Player.cpp
+  コードを生成中...
   dodge.vcxproj -> C:\Users\sho_o\MyGame\dodge\x64\Debug\dodge.exe
   ..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\x64\SDL2.dll
   1 個のファイルをコピーしました

@@ -12,6 +12,7 @@
 #include "SpriteComponent.h"
 #include "Player.h"
 #include "Grid.h"
+#include "Bamboo.h"
 
 
 Game::Game()
@@ -159,6 +160,8 @@ void Game::LoadData()
 	mGrid = new Grid(this);
 
 	mPlayer = new Player(this);
+
+	//mBamboo = new Bamboo(this);
 
 }
 

@@ -51,4 +51,5 @@ private:
 
 	class Player* mPlayer;
 	class Grid* mGrid;
+	//std::vector<class Bamboo*> mBamboos;
 };
