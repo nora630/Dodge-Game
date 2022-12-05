@@ -10,6 +10,7 @@
 #include "SpriteComponent.h"
 #include "Grid.h"
 #include "Random.h"
+#include "CircleComponent.h"
 
 Bamboo::Bamboo(class Game* game) 
 	:Actor(game)
@@ -19,6 +20,12 @@ Bamboo::Bamboo(class Game* game)
 	,mBambooRow(0)
 	,mBambooDir(0)
 {
+	game->GetBamboos().emplace_back(this);
+
+	mCircle = new CircleComponent(this);
+	mCircle->SetRadius(0.2f);
+
+	
 	SpriteComponent* sc = new SpriteComponent(this);
 	SetScale(0.4f);
 
@@ -63,7 +70,10 @@ Bamboo::Bamboo(class Game* game)
 
 Bamboo::~Bamboo()
 {
-
+	auto iter = std::find(GetGame()->GetBamboos().begin(),
+		GetGame()->GetBamboos().end(),
+		this);
+	GetGame()->GetBamboos().erase(iter);
 }
 
 void Bamboo::UpdateActor(float deltaTime)
@@ -82,3 +92,4 @@ void Bamboo::UpdateActor(float deltaTime)
 	}
 
 }
+

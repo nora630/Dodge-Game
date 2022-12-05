@@ -12,6 +12,8 @@
 #include "AnimSpriteComponent.h"
 #include "Game.h"
 #include "Grid.h"
+#include "CircleComponent.h"
+#include "Bamboo.h"
 
 Player::Player(Game* game)
 	:Actor(game)
@@ -32,6 +34,10 @@ Player::Player(Game* game)
 
 	SetPosition(Vector2(StartX + TileSize / 2.0f + mPlayerColum * TileSize, StartY + mPlayerRow * TileSize));
 	SetScale(0.1f);
+
+	mCircle = new CircleComponent(this);
+	mCircle->SetRadius(0.05f);
+
 }
 
 void Player::UpdateActor(float deltaTime)
@@ -98,6 +104,16 @@ void Player::UpdateActor(float deltaTime)
 			else {
 				SetPosition(pos);
 			}
+		}
+	}
+
+	// Check for collision vs bamboos
+	for (Bamboo* b : GetGame()->GetBamboos())
+	{
+		if (Intersect(*mCircle, *(b->GetCircle())))
+		{
+			b->SetState(EDead);
+			break;
 		}
 	}
 }

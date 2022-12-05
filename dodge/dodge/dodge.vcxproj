@@ -157,6 +157,7 @@ xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.
   <ItemGroup>
     <ClCompile Include="AnimSpriteComponent.cpp" />
     <ClCompile Include="Bamboo.cpp" />
+    <ClCompile Include="CircleComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -172,6 +173,7 @@ xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.
     <ClInclude Include="Actor.h" />
     <ClInclude Include="AnimSpriteComponent.h" />
     <ClInclude Include="Bamboo.h" />
+    <ClInclude Include="CircleComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Grid.h" />

@@ -17,6 +17,7 @@ public:
 	void ProcessKeyboard(const uint8_t* state);
 
 private:
+	class CircleComponent* mCircle;
 	// プレイヤーが盤面の何番目の行、列にいるのか保持する
 	size_t mPlayerColum;
 	size_t mPlayerRow;
@@ -32,3 +33,5 @@ private:
 	int mDirY;
 
 };
+
+

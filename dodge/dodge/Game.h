@@ -28,6 +28,8 @@ public:
 	void RemoveSprite(class SpriteComponent* sprite);
 
 	SDL_Texture* GetTexture(const std::string& fileName);
+	std::vector<class Bamboo*>& GetBamboos() { return mBamboos; }
+
 private:
 	void ProcessInput();
 	void UpdateGame();
@@ -51,5 +53,5 @@ private:
 
 	class Player* mPlayer;
 	class Grid* mGrid;
-	//std::vector<class Bamboo*> mBamboos;
+	std::vector<class Bamboo*> mBamboos;
 };
