@@ -36,7 +36,7 @@ Player::Player(Game* game)
 	SetScale(0.1f);
 
 	mCircle = new CircleComponent(this);
-	mCircle->SetRadius(0.05f);
+	mCircle->SetRadius(5.0f);
 
 }
 

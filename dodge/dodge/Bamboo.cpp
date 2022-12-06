@@ -23,7 +23,7 @@ Bamboo::Bamboo(class Game* game)
 	game->GetBamboos().emplace_back(this);
 
 	mCircle = new CircleComponent(this);
-	mCircle->SetRadius(0.2f);
+	mCircle->SetRadius(10.0f);
 
 	
 	SpriteComponent* sc = new SpriteComponent(this);
