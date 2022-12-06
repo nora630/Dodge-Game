@@ -13,6 +13,7 @@
 #include "Game.h"
 #include "Grid.h"
 #include "CircleComponent.h"
+#include "RectangleComponent.h"
 #include "Bamboo.h"
 
 Player::Player(Game* game)
@@ -36,7 +37,7 @@ Player::Player(Game* game)
 	SetScale(0.1f);
 
 	mCircle = new CircleComponent(this);
-	mCircle->SetRadius(5.0f);
+	mCircle->SetRadius(320.0f);
 
 }
 
@@ -110,7 +111,7 @@ void Player::UpdateActor(float deltaTime)
 	// Check for collision vs bamboos
 	for (Bamboo* b : GetGame()->GetBamboos())
 	{
-		if (Intersect(*mCircle, *(b->GetCircle())))
+		if (Intersect(*(b->GetRectangle()), *mCircle))
 		{
 			b->SetState(EDead);
 			break;

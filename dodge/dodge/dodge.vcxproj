@@ -166,6 +166,7 @@ xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="RectangleComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="Tile.cpp" />
   </ItemGroup>
@@ -180,6 +181,7 @@ xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.
     <ClInclude Include="Math.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="RectangleComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Tile.h" />
   </ItemGroup>

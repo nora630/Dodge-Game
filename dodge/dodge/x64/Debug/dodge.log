@@ -1,11 +1,13 @@
-﻿  Bamboo.cpp
+﻿  AnimSpriteComponent.cpp
+  Bamboo.cpp
+  CircleComponent.cpp
+  Component.cpp
+  Game.cpp
+  Grid.cpp
+  main.cpp
+  Actor.cpp
+  Math.cpp
   Player.cpp
+  Tile.cpp
   コードを生成中...
-  LINK : 前回のインクリメンタル リンクで C:\Users\sho_o\MyGame\dodge\x64\Debug\dodge.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
-  dodge.vcxproj -> C:\Users\sho_o\MyGame\dodge\x64\Debug\dodge.exe
-  ..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\x64\SDL2.dll
-  1 個のファイルをコピーしました
-  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x64\SDL2_image.dll
-  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x64\optional\libtiff-5.dll
-  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x64\optional\libwebp-7.dll
-  3 個のファイルをコピーしました
+C:\Users\sho_o\MyGame\dodge\dodge\Actor.cpp : fatal  error C1090: PDB API の呼び出しに失敗しました。エラー コード '3': C:\Users\sho_o\MyGame\dodge\dodge\x64\Debug\vc143.pdb

@@ -15,7 +15,7 @@ public:
 	Bamboo(class Game* game);
 	~Bamboo();
 	void UpdateActor(float deltaTime) override;
-	class CircleComponent* GetCircle() { return mCircle; }
+	class RectangleComponent* GetRectangle() { return mRectangle; }
 
 private:
 	float mRightSpeed;
@@ -26,5 +26,6 @@ private:
 	// mBambooDirが、1の時はdown、2の時はup、3の時はright、4の時はleftに竹がやってくる
 	int mBambooDir;
 
-	class CircleComponent* mCircle;
+	//class CircleComponent* mCircle;
+	class RectangleComponent* mRectangle;
 };

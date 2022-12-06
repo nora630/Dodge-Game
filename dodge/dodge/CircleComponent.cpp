@@ -25,6 +25,7 @@ float CircleComponent::GetRadius() const
 	return mOwner->GetScale() * mRadius;
 }
 
+/*
 bool Intersect(const CircleComponent& a, const CircleComponent& b)
 {
 	// Calculate distance squared
@@ -37,3 +38,4 @@ bool Intersect(const CircleComponent& a, const CircleComponent& b)
 
 	return distSq <= radiiSq;
 }
+*/

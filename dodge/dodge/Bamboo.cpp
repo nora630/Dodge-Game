@@ -11,6 +11,7 @@
 #include "Grid.h"
 #include "Random.h"
 #include "CircleComponent.h"
+#include "RectangleComponent.h"
 
 Bamboo::Bamboo(class Game* game) 
 	:Actor(game)
@@ -22,12 +23,14 @@ Bamboo::Bamboo(class Game* game)
 {
 	game->GetBamboos().emplace_back(this);
 
-	mCircle = new CircleComponent(this);
-	mCircle->SetRadius(10.0f);
+	//mCircle = new CircleComponent(this);
+	//mCircle->SetRadius(80.0f);
 
 	
 	SpriteComponent* sc = new SpriteComponent(this);
 	SetScale(0.4f);
+
+	
 
 
 	//bamboo初期リスポーン地点
@@ -66,6 +69,10 @@ Bamboo::Bamboo(class Game* game)
 	default:
 		break;
 	}
+
+	mRectangle = new RectangleComponent(this);
+	mRectangle->SetMin(Vector2(GetPosition().x - sc->GetTexWidth() * GetScale() / 2, GetPosition().y - sc->GetTexHeight() * GetScale() / 2));
+	mRectangle->SetMax(Vector2(GetPosition().x + sc->GetTexWidth() * GetScale() / 2, GetPosition().y + sc->GetTexHeight() * GetScale() / 2));
 }
 
 Bamboo::~Bamboo()

@@ -1,2 +1,8 @@
-﻿  main.cpp
-LINK : fatal error LNK1104: ファイル 'SDL2.lib' を開くことができません。
+﻿  Player.cpp
+  dodge.vcxproj -> C:\Users\sho_o\MyGame\dodge\Debug\dodge.exe
+  ..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\x86\SDL2.dll
+  1 個のファイルをコピーしました
+  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x86\SDL2_image.dll
+  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x86\optional\libtiff-5.dll
+  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x86\optional\libwebp-7.dll
+  3 個のファイルをコピーしました
