@@ -1,4 +1,18 @@
-﻿  Player.cpp
+﻿  AnimSpriteComponent.cpp
+  Bamboo.cpp
+  CircleComponent.cpp
+  Component.cpp
+  Game.cpp
+  Grid.cpp
+  main.cpp
+  Actor.cpp
+  Math.cpp
+  Player.cpp
+  Random.cpp
+  RectangleComponent.cpp
+  SpriteComponent.cpp
+  Tile.cpp
+  コードを生成中...
   dodge.vcxproj -> C:\Users\sho_o\MyGame\dodge\Debug\dodge.exe
   ..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\x86\SDL2.dll
   1 個のファイルをコピーしました

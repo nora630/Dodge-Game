@@ -21,10 +21,16 @@ public:
 	void SetMax(Vector2 max) { mMax = max; }
 	Vector2 GetMin() const { return mMin; }
 	Vector2 GetMax() const { return mMax; }
+	int GetTexHeight() const { return mTexHeight; }
+	int GetTexWidth() const { return mTexWidth; }
+	void SetTexHeight(int texHeight) { mTexHeight = texHeight; }
+	void SetTexWidth(int texWidth) { mTexWidth = texWidth; }
 
 private:
 	Vector2 mMin;
 	Vector2 mMax;
+	int mTexWidth;
+	int mTexHeight;
 };
 
 bool Intersect(const RectangleComponent& a, const CircleComponent& b);
