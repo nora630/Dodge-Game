@@ -15,6 +15,7 @@
 #include "CircleComponent.h"
 #include "RectangleComponent.h"
 #include "Bamboo.h"
+#include "CryPlayer.h"
 
 Player::Player(Game* game)
 	:Actor(game)
@@ -113,7 +114,10 @@ void Player::UpdateActor(float deltaTime)
 	{
 		if (Intersect(*(b->GetRectangle()), *mCircle))
 		{
-			b->SetState(EDead);
+			SetState(EDead);
+			CryPlayer* cryPlayer = new CryPlayer(GetGame());
+			cryPlayer->SetPosition(GetPosition());
+			//GetGame()->Shutdown();
 			break;
 		}
 	}
