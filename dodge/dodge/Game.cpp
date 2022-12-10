@@ -13,7 +13,8 @@
 #include "Player.h"
 #include "Grid.h"
 #include "Bamboo.h"
-
+#include "SDL_ttf.h"
+#include "SDL_rect.h"
 
 Game::Game()
 	:mWindow(nullptr)
@@ -50,6 +51,29 @@ bool Game::Initialize()
 	if (IMG_Init(IMG_INIT_PNG) == 0)
 	{
 		SDL_Log("Unable to initialize SDL_image: %s", SDL_GetError());
+		return false;
+	}
+
+	if (TTF_Init() != 0)
+	{
+		SDL_Log("Failed to initialize SDL_ttf");
+		return false;
+	}
+
+	/*
+	mFont = new Font(this);
+
+	if (mFont->Load("Corporate-Logo-Rounded-Bold-ver3.otf") != true)
+	{
+		SDL_Log("Failed to load font");
+		return false;
+	}
+	*/
+	
+	mFont = TTF_OpenFont("Corporate-Logo-Rounded-Bold-ver3.otf", 24);
+	if (mFont == nullptr)
+	{
+		SDL_Log("Failed to load font");
 		return false;
 	}
 
@@ -152,7 +176,30 @@ void Game::GenerateOutput()
 	{
 		sprite->Draw(mRenderer);
 	} 
+	//SDL_RenderPresent(mRenderer);
+
+	auto string_color = SDL_Color();
+	string_color.r = 0;
+	string_color.g = 0;
+	string_color.b = 255;
+	string_color.a = 255;
+
+	auto string_surface = TTF_RenderUTF8_Solid(mFont, u8"こんにちは！！", string_color);
+	mTexture = SDL_CreateTextureFromSurface(mRenderer, string_surface);
+	
+	int w, h;
+	w = 30;
+	h = 20;
+	SDL_QueryTexture(mTexture, nullptr, nullptr, &w, &h);
+
+	SDL_Rect txtRect = { 0,0,w,h };
+	SDL_Rect pasteRect = { 800,0,w,h };
+
+	SDL_RenderCopy(mRenderer, mTexture, nullptr, &pasteRect);
+	//windowにレンダリングする      
 	SDL_RenderPresent(mRenderer);
+
+
 }
 
 void Game::LoadData()
@@ -160,6 +207,8 @@ void Game::LoadData()
 	mGrid = new Grid(this);
 
 	mPlayer = new Player(this);
+
+	
 
 	//mBamboo = new Bamboo(this);
 
@@ -185,6 +234,7 @@ void Game::UnloadData()
 void Game::Shutdown()
 {
 	UnloadData();
+	TTF_Quit();
 	IMG_Quit();
 	SDL_DestroyRenderer(mRenderer);
 	SDL_DestroyWindow(mWindow);

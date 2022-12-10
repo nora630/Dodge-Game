@@ -12,6 +12,7 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
+#include "Font.h"
 
 class Game
 {
@@ -46,8 +47,13 @@ private:
 
 	SDL_Window* mWindow;
 	SDL_Renderer* mRenderer;
+	//class Font* mFont;
+	TTF_Font* mFont;
+	SDL_Texture* mTexture;
+
 	Uint32 mTicksCount;
 	bool mIsRunning;
+
 
 	bool mUpdatingActors;
 
