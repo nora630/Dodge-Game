@@ -43,28 +43,28 @@ Bamboo::Bamboo(class Game* game)
 		sc->SetTexture(game->GetTexture("Assets/bambooDown.png"));
 		mBambooColum = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(StartX + TileSize / 2.0f + mBambooColum * TileSize, 0));
-		mDownSpeed = 300.0f;
+		mDownSpeed = 500.0f;
 		break;
 
 	case 2:
 		sc->SetTexture(game->GetTexture("Assets/bambooUp.png"));
 		mBambooColum = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(StartX + TileSize / 2.0f + mBambooColum * TileSize, 768));
-		mDownSpeed = -300.0f;
+		mDownSpeed = -500.0f;
 		break;
 
 	case 3:
 		sc->SetTexture(game->GetTexture("Assets/bambooRight.png"));
 		mBambooRow = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(0, StartY + mBambooRow * TileSize));
-		mRightSpeed = 300.0f;
+		mRightSpeed = 500.0f;
 		break;
 
 	case 4:
 		sc->SetTexture(game->GetTexture("Assets/bambooleft.png"));
 		mBambooRow = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(1024, StartY + mBambooRow * TileSize));
-		mRightSpeed = -300.0f;
+		mRightSpeed = -500.0f;
 		break;
 	default:
 		break;

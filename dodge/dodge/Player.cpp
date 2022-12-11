@@ -109,6 +109,7 @@ void Player::UpdateActor(float deltaTime)
 		}
 	}
 
+	/*
 	// Check for collision vs bamboos
 	for (Bamboo* b : GetGame()->GetBamboos())
 	{
@@ -121,6 +122,7 @@ void Player::UpdateActor(float deltaTime)
 			break;
 		}
 	}
+	*/
 }
 
 void Player::ProcessKeyboard(const uint8_t* state)

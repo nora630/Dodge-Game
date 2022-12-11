@@ -37,7 +37,7 @@ private:
 	float mNextBamboo;
 
 	// ’|‚ÌƒŠƒXƒ|[ƒ“ŠÔŠu
-	const float BambooTime = 1.5f;
+	const float BambooTime = 0.25f;
 	
 };
 

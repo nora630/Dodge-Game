@@ -8,6 +8,7 @@
 
 #pragma once
 
+
 #include "SDL.h"
 #include <vector>
 #include <string>
@@ -38,6 +39,8 @@ private:
 	void LoadData();
 	void UnloadData();
 
+	void UpdateCollisionDetection();
+
 	std::unordered_map<std::string, SDL_Texture*> mTextures;
 
 	std::vector<class Actor*> mActors;
@@ -47,9 +50,9 @@ private:
 
 	SDL_Window* mWindow;
 	SDL_Renderer* mRenderer;
-	//class Font* mFont;
-	TTF_Font* mFont;
-	SDL_Texture* mTexture;
+	class Font* mFont;
+	//TTF_Font* mFont;
+	//SDL_Texture* mTexture;
 
 	Uint32 mTicksCount;
 	bool mIsRunning;
@@ -60,4 +63,5 @@ private:
 	class Player* mPlayer;
 	class Grid* mGrid;
 	std::vector<class Bamboo*> mBamboos;
+	char mTime[10];
 };

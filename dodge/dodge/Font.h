@@ -21,10 +21,10 @@ public:
 	bool Load(const std::string& fileName);
 	void Unload();
 
-	// Given string and this font, draw to a texture
-	class Texture* RenderText(const std::string& textKey,
-		const Vector3& color = Color::White,
-		int pointSize = 30);
+	void RenderText(const std::string& text,
+		SDL_Rect* rect, const SDL_Color* color /*= Color::White*/,
+		int pointSize /*= 24*/, SDL_Renderer* renderer);
+
 private:
 	// Map of point sizes to font data
 	std::unordered_map<int, TTF_Font*> mFontData;

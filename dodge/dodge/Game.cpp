@@ -11,10 +11,12 @@
 #include "Actor.h"
 #include "SpriteComponent.h"
 #include "Player.h"
+#include "CryPlayer.h"
 #include "Grid.h"
 #include "Bamboo.h"
 #include "SDL_ttf.h"
 #include "SDL_rect.h"
+#include "RectangleComponent.h"
 
 Game::Game()
 	:mWindow(nullptr)
@@ -59,23 +61,16 @@ bool Game::Initialize()
 		SDL_Log("Failed to initialize SDL_ttf");
 		return false;
 	}
-
-	/*
-	mFont = new Font(this);
-
-	if (mFont->Load("Corporate-Logo-Rounded-Bold-ver3.otf") != true)
-	{
-		SDL_Log("Failed to load font");
-		return false;
-	}
-	*/
 	
+	
+	/*
 	mFont = TTF_OpenFont("Corporate-Logo-Rounded-Bold-ver3.otf", 24);
 	if (mFont == nullptr)
 	{
 		SDL_Log("Failed to load font");
 		return false;
 	}
+	*/
 
 	LoadData();
 
@@ -163,6 +158,9 @@ void Game::UpdateGame()
 	{
 		delete actor;
 	}
+
+	if(mPlayer->GetState() == Actor::EActive) UpdateCollisionDetection();
+
 }
 
 void Game::GenerateOutput()
@@ -178,6 +176,7 @@ void Game::GenerateOutput()
 	} 
 	//SDL_RenderPresent(mRenderer);
 
+	/*
 	auto string_color = SDL_Color();
 	string_color.r = 0;
 	string_color.g = 0;
@@ -196,7 +195,23 @@ void Game::GenerateOutput()
 	SDL_Rect pasteRect = { 800,0,w,h };
 
 	SDL_RenderCopy(mRenderer, mTexture, nullptr, &pasteRect);
-	//windowにレンダリングする      
+	//windowにレンダリングする 
+	*/
+
+	auto string_color = SDL_Color();
+	string_color.r = 0;
+	string_color.g = 0;
+	string_color.b = 0;
+	string_color.a = 255;
+
+	SDL_Rect pasteRect = { 800,0,100,50 };
+
+	//mTime = std::to_string(mTicksCount / 1000 / 60) + " :" + std::to_string((mTicksCount / 1000) % 60);
+
+	sprintf_s(mTime, sizeof(mTime), "%02d : %02d", mTicksCount / 1000 / 60, (mTicksCount / 1000) % 60);
+	mFont->RenderText(mTime, &pasteRect, &string_color,
+		24, mRenderer);
+
 	SDL_RenderPresent(mRenderer);
 
 
@@ -204,11 +219,13 @@ void Game::GenerateOutput()
 
 void Game::LoadData()
 {
+
+	mFont = new Font(this);
+	mFont->Load("Corporate-Logo-Rounded-Bold-ver3.otf");
+	
 	mGrid = new Grid(this);
 
 	mPlayer = new Player(this);
-
-	
 
 	//mBamboo = new Bamboo(this);
 
@@ -222,6 +239,8 @@ void Game::UnloadData()
 	{
 		delete mActors.back();
 	}
+
+	mFont->Unload();
 
 	// Destroy textures
 	for (auto i : mTextures)
@@ -333,4 +352,19 @@ void Game::RemoveSprite(SpriteComponent* sprite)
 	// (We can't swap because it ruins ordering)
 	auto iter = std::find(mSprites.begin(), mSprites.end(), sprite);
 	mSprites.erase(iter);
+}
+
+void Game::UpdateCollisionDetection()
+{
+	for (Bamboo* b : mBamboos)
+	{
+		if (Intersect(*(b->GetRectangle()), *(mPlayer->GetCircle())))
+		{
+			CryPlayer* cryPlayer = new CryPlayer(this);
+			cryPlayer->SetPosition(mPlayer->GetPosition());
+			mPlayer->SetState(mPlayer->EDead);
+			//GetGame()->Shutdown();
+			break;
+		}
+	}
 }
