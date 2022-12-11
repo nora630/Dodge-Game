@@ -14,6 +14,7 @@
 #include <string>
 #include <unordered_map>
 #include "Font.h"
+#include <SDL_mixer.h>
 
 class Game
 {
@@ -56,6 +57,7 @@ private:
 	class Font* mFont;
 	//TTF_Font* mFont;
 	//SDL_Texture* mTexture;
+	Mix_Music* mMusic;
 
 	Uint32 mTicksCount;
 	Uint32 mStartCount;

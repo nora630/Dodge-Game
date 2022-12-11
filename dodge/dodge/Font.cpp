@@ -76,6 +76,9 @@ void Font::Unload()
 			h = rect->h;
 			SDL_QueryTexture(texture, nullptr, nullptr, &w, &h);
 			SDL_RenderCopy(renderer, texture, nullptr, rect);
+
+			SDL_FreeSurface(surf);
+			SDL_DestroyTexture(texture);
 		}
 	}
 	else

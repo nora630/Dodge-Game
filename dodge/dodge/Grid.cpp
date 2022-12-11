@@ -40,6 +40,7 @@ void Grid::UpdateActor(float deltaTime)
 {
 	Actor::UpdateActor(deltaTime);
 
+	
 	mNextBamboo -= deltaTime;
 	if (mNextBamboo <= 0.0f)
 	{

@@ -132,7 +132,7 @@ void Player::ProcessKeyboard(const uint8_t* state)
 		if (state[SDL_SCANCODE_D] && mPlayerColum < NumCols - 1)
 		{
 			++mPlayerColum;
-			mRightSpeed = 512.0f;
+			mRightSpeed = 800.0f;
 			mDirX = 1;
 			mKeyInput = false;
 			return;
@@ -140,7 +140,7 @@ void Player::ProcessKeyboard(const uint8_t* state)
 		if (state[SDL_SCANCODE_A] && mPlayerColum > 0)
 		{
 			--mPlayerColum;
-			mRightSpeed = -512.0f;
+			mRightSpeed = -800.0f;
 			mDirX = -1;
 			mKeyInput = false;
 			return;
@@ -149,7 +149,7 @@ void Player::ProcessKeyboard(const uint8_t* state)
 		if (state[SDL_SCANCODE_S] && mPlayerRow < NumRows - 1)
 		{
 			++mPlayerRow;
-			mDownSpeed = 512.0f;
+			mDownSpeed = 800.0f;
 			mDirY = 1;
 			mKeyInput = false;
 			return;
@@ -157,7 +157,7 @@ void Player::ProcessKeyboard(const uint8_t* state)
 		if (state[SDL_SCANCODE_W] && mPlayerRow > 0)
 		{
 			--mPlayerRow;
-			mDownSpeed = -512.0f;
+			mDownSpeed = -800.0f;
 			mDirY = -1;
 			mKeyInput = false;
 			return;

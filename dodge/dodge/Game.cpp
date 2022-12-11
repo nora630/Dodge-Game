@@ -17,6 +17,7 @@
 #include "SDL_ttf.h"
 #include "SDL_rect.h"
 #include "RectangleComponent.h"
+#include "SDL_mixer.h"
 
 Game::Game()
 	:mWindow(nullptr)
@@ -61,7 +62,27 @@ bool Game::Initialize()
 		SDL_Log("Failed to initialize SDL_ttf");
 		return false;
 	}
+
+	/*
+	if (SDL_Init(SDL_INIT_AUDIO) < 0) {
+		printf("Mixer could not initialize! Mixer_Error: %s", Mix_GetError());
+		return false;
+	}
+	*/
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1) {
+		printf("Mix_OpenAudio could not initialize! Mixer_Error: %s", Mix_GetError());
+		return false;
+	}
 	
+	mMusic = Mix_LoadMUS("Assets/bgm.ogg");
+	if (mMusic == NULL) {
+		return false;
+	}
+	if (Mix_PlayMusic(mMusic, -1) == -1) {
+		return false;
+	}
+
+	Mix_VolumeMusic(10);
 	
 	/*
 	mFont = TTF_OpenFont("Corporate-Logo-Rounded-Bold-ver3.otf", 24);
@@ -78,6 +99,7 @@ bool Game::Initialize()
 
 	mTicksCount = SDL_GetTicks();
 	LoadGameScene();
+	Mix_PlayingMusic();
 
 	return true;
 
@@ -118,9 +140,11 @@ void Game::ProcessInput()
 		mPlayer->ProcessKeyboard(state);
 	}
 	else {
-		if (state[SDL_SCANCODE_RETURN])
+		if (state[SDL_SCANCODE_RETURN] || state[SDL_SCANCODE_E])
 		{
 			LoadGameScene();
+			Mix_RewindMusic();
+			Mix_ResumeMusic();
 		}
 	}
 
@@ -209,6 +233,7 @@ void Game::GenerateOutput()
 	SDL_RenderCopy(mRenderer, mTexture, nullptr, &pasteRect);
 	//window‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é 
 	*/
+	
 
 	if (mGameSceneActive) 
 	{
@@ -240,6 +265,7 @@ void Game::GenerateOutput()
 		mFont->RenderText(mTime, &pasteRect, &string_color,
 			72, mRenderer);
 	}
+	
 
 	SDL_RenderPresent(mRenderer);
 
@@ -277,6 +303,9 @@ void Game::UnloadGameScene()
 	mTextures.clear();
 
 	mGameSceneActive = false;
+
+	Mix_PauseMusic();
+	//Mix_RewindMusic();
 }
 
 void Game::LoadResultScene()
@@ -294,6 +323,8 @@ void Game::Shutdown()
 	UnloadGameScene();
 	UnloadResultScene();
 	mFont->Unload();
+	Mix_FreeMusic(mMusic);
+	Mix_CloseAudio();
 	TTF_Quit();
 	IMG_Quit();
 	SDL_DestroyRenderer(mRenderer);
