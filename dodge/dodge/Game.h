@@ -36,8 +36,11 @@ private:
 	void ProcessInput();
 	void UpdateGame();
 	void GenerateOutput();
-	void LoadData();
-	void UnloadData();
+	void LoadGameScene();
+	void UnloadGameScene();
+
+	void LoadResultScene();
+	void UnloadResultScene();
 
 	void UpdateCollisionDetection();
 
@@ -55,6 +58,8 @@ private:
 	//SDL_Texture* mTexture;
 
 	Uint32 mTicksCount;
+	Uint32 mStartCount;
+	Uint32 mResultCount;
 	bool mIsRunning;
 
 
@@ -63,5 +68,6 @@ private:
 	class Player* mPlayer;
 	class Grid* mGrid;
 	std::vector<class Bamboo*> mBamboos;
-	char mTime[10];
+	char mTime[50];
+	bool mGameSceneActive = false;
 };

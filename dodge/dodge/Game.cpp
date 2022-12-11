@@ -71,10 +71,13 @@ bool Game::Initialize()
 		return false;
 	}
 	*/
-
-	LoadData();
+	mFont = new Font(this);
+	mFont->Load("Corporate-Logo-Rounded-Bold-ver3.otf");
+	
+	//mFont->Load("Oranienbaum.ttf");
 
 	mTicksCount = SDL_GetTicks();
+	LoadGameScene();
 
 	return true;
 
@@ -110,7 +113,16 @@ void Game::ProcessInput()
 		mIsRunning = false;
 	}
 
-	mPlayer->ProcessKeyboard(state);
+	if (mGameSceneActive)
+	{
+		mPlayer->ProcessKeyboard(state);
+	}
+	else {
+		if (state[SDL_SCANCODE_RETURN])
+		{
+			LoadGameScene();
+		}
+	}
 
 }
 
@@ -198,40 +210,57 @@ void Game::GenerateOutput()
 	//window‚ÉƒŒƒ“ƒ_ƒŠƒ“ƒO‚·‚é 
 	*/
 
-	auto string_color = SDL_Color();
-	string_color.r = 0;
-	string_color.g = 0;
-	string_color.b = 0;
-	string_color.a = 255;
+	if (mGameSceneActive) 
+	{
+		auto string_color = SDL_Color();
+		string_color.r = 0;
+		string_color.g = 0;
+		string_color.b = 0;
+		string_color.a = 255;
 
-	SDL_Rect pasteRect = { 800,0,100,50 };
+		SDL_Rect pasteRect = { 800,0,100,50 };
 
-	//mTime = std::to_string(mTicksCount / 1000 / 60) + " :" + std::to_string((mTicksCount / 1000) % 60);
+		//mTime = std::to_string(mTicksCount / 1000 / 60) + " :" + std::to_string((mTicksCount / 1000) % 60);
 
-	sprintf_s(mTime, sizeof(mTime), "%02d : %02d", mTicksCount / 1000 / 60, (mTicksCount / 1000) % 60);
-	mFont->RenderText(mTime, &pasteRect, &string_color,
-		24, mRenderer);
+		sprintf_s(mTime, sizeof(mTime), "%02d : %02d", (mTicksCount-mStartCount) / 1000 / 60, ((mTicksCount - mStartCount) / 1000) % 60);
+		mFont->RenderText(mTime, &pasteRect, &string_color,
+			72, mRenderer);
+	}
+	else {
+		auto string_color = SDL_Color();
+		string_color.r = 0;
+		string_color.g = 0;
+		string_color.b = 0;
+		string_color.a = 255;
+		SDL_Rect pasteRect = { 0,0,1000,700 };
+
+		//mTime = std::to_string(mTicksCount / 1000 / 60) + " :" + std::to_string((mTicksCount / 1000) % 60);
+
+		sprintf_s(mTime, sizeof(mTime), "Result %02d : %02d", mResultCount / 1000 / 60, (mResultCount / 1000) % 60);
+		mFont->RenderText(mTime, &pasteRect, &string_color,
+			72, mRenderer);
+	}
 
 	SDL_RenderPresent(mRenderer);
 
 
 }
 
-void Game::LoadData()
-{
-
-	mFont = new Font(this);
-	mFont->Load("Corporate-Logo-Rounded-Bold-ver3.otf");
-	
+void Game::LoadGameScene()
+{	
 	mGrid = new Grid(this);
 
 	mPlayer = new Player(this);
 
 	//mBamboo = new Bamboo(this);
 
+	mGameSceneActive = true;
+
+	mStartCount = mTicksCount;
+
 }
 
-void Game::UnloadData()
+void Game::UnloadGameScene()
 {
 	// Delete actors
 	// Because ~Actor calls RemoveActor, have to use a different style loop
@@ -240,19 +269,31 @@ void Game::UnloadData()
 		delete mActors.back();
 	}
 
-	mFont->Unload();
-
 	// Destroy textures
 	for (auto i : mTextures)
 	{
 		SDL_DestroyTexture(i.second);
 	}
 	mTextures.clear();
+
+	mGameSceneActive = false;
+}
+
+void Game::LoadResultScene()
+{
+
+}
+
+void Game::UnloadResultScene()
+{
+	
 }
 
 void Game::Shutdown()
 {
-	UnloadData();
+	UnloadGameScene();
+	UnloadResultScene();
+	mFont->Unload();
 	TTF_Quit();
 	IMG_Quit();
 	SDL_DestroyRenderer(mRenderer);
@@ -363,7 +404,9 @@ void Game::UpdateCollisionDetection()
 			CryPlayer* cryPlayer = new CryPlayer(this);
 			cryPlayer->SetPosition(mPlayer->GetPosition());
 			mPlayer->SetState(mPlayer->EDead);
+			mResultCount = mTicksCount - mStartCount;
 			//GetGame()->Shutdown();
+			UnloadGameScene();
 			break;
 		}
 	}

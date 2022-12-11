@@ -11,7 +11,7 @@ public:
 	virtual ~Scene();
 	virtual void Start();
 	virtual void Update(float deltaTime);
-	virtual void ProcessInput();
+	virtual void ProcessInput(const Uint8* state);
 
 private:
 	class Game* mGame;

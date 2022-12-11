@@ -21,7 +21,7 @@ void Scene::Update(float deltaTime)
 
 }
 
-void Scene::ProcessInput()
+void Scene::ProcessInput(const Uint8* state)
 {
 
 }

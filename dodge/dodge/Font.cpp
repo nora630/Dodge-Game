@@ -67,7 +67,7 @@ void Font::Unload()
 	if (iter != mFontData.end())
 	{
 		TTF_Font* font = iter->second;
-		SDL_Surface* surf = TTF_RenderUTF8_Solid(font, text.c_str(), *color);
+		SDL_Surface* surf = TTF_RenderUTF8_Blended(font, text.c_str(), *color);
 		if (surf != nullptr)
 		{
 			texture = SDL_CreateTextureFromSurface(renderer, surf);
