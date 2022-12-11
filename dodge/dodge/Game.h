@@ -30,6 +30,8 @@ public:
 	void AddSprite(class SpriteComponent* sprite);
 	void RemoveSprite(class SpriteComponent* sprite);
 
+	Uint32 GetTime() { return mTicksCount - mStartCount; }
+
 	SDL_Texture* GetTexture(const std::string& fileName);
 	std::vector<class Bamboo*>& GetBamboos() { return mBamboos; }
 

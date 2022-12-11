@@ -125,6 +125,8 @@ void Game::ProcessInput()
 		case SDL_QUIT:
 			mIsRunning = false;
 			break;
+		case SDL_KEYUP:
+			return;
 		}
 	}
 
@@ -257,11 +259,11 @@ void Game::GenerateOutput()
 		string_color.g = 0;
 		string_color.b = 0;
 		string_color.a = 255;
-		SDL_Rect pasteRect = { 0,0,1000,700 };
+		SDL_Rect pasteRect = { 300,150,400,400 };
 
 		//mTime = std::to_string(mTicksCount / 1000 / 60) + " :" + std::to_string((mTicksCount / 1000) % 60);
 
-		sprintf_s(mTime, sizeof(mTime), "Result %02d : %02d", mResultCount / 1000 / 60, (mResultCount / 1000) % 60);
+		sprintf_s(mTime, sizeof(mTime), "Result\n %02d : %02d", mResultCount / 1000 / 60, (mResultCount / 1000) % 60);
 		mFont->RenderText(mTime, &pasteRect, &string_color,
 			72, mRenderer);
 	}
