@@ -162,6 +162,7 @@ xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dl
   <ItemGroup>
     <ClCompile Include="AnimSpriteComponent.cpp" />
     <ClCompile Include="Bamboo.cpp" />
+    <ClCompile Include="Chikurin.cpp" />
     <ClCompile Include="CircleComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CryPlayer.cpp" />
@@ -182,6 +183,7 @@ xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dl
     <ClInclude Include="Actor.h" />
     <ClInclude Include="AnimSpriteComponent.h" />
     <ClInclude Include="Bamboo.h" />
+    <ClInclude Include="chikurin.h" />
     <ClInclude Include="CircleComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CryPlayer.h" />

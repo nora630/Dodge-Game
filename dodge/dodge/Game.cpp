@@ -18,6 +18,7 @@
 #include "SDL_rect.h"
 #include "RectangleComponent.h"
 #include "SDL_mixer.h"
+#include "chikurin.h"
 
 Game::Game()
 	:mWindow(nullptr)
@@ -281,6 +282,8 @@ void Game::LoadGameScene()
 	mPlayer = new Player(this);
 
 	//mBamboo = new Bamboo(this);
+
+	mChikurin = new Chikurin(this);
 
 	mGameSceneActive = true;
 

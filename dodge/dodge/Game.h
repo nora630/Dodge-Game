@@ -73,5 +73,6 @@ private:
 	class Grid* mGrid;
 	std::vector<class Bamboo*> mBamboos;
 	char mTime[50];
+	class Chikurin* mChikurin;
 	bool mGameSceneActive = false;
 };
