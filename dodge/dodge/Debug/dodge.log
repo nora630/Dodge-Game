@@ -1,5 +1,12 @@
-﻿  Grid.cpp
-  dodge.vcxproj -> C:\Users\小野寺\Dodge-Game\dodge\Debug\dodge.exe
+﻿  Bamboo.cpp
+C:\Users\sho_o\MyGame\dodge\dodge\Bamboo.cpp(78,45): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\sho_o\MyGame\dodge\dodge\Bamboo.cpp(79,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  CryPlayer.cpp
+  Game.cpp
+  Grid.cpp
+  Player.cpp
+  コードを生成中...
+  dodge.vcxproj -> C:\Users\sho_o\MyGame\dodge\Debug\dodge.exe
   ..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\x86\SDL2.dll
   1 個のファイルをコピーしました
   ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x86\SDL2_image.dll

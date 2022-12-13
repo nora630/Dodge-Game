@@ -82,7 +82,7 @@ bool Game::Initialize()
 		return false;
 	}
 
-	Mix_VolumeMusic(10);
+	Mix_VolumeMusic(1);
 	
 	/*
 	mFont = TTF_OpenFont("Corporate-Logo-Rounded-Bold-ver3.otf", 24);

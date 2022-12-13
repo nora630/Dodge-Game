@@ -34,13 +34,13 @@ Bamboo::Bamboo(class Game* game)
 
 
 	//bamboo初期リスポーン地点
-
 	mBambooDir = Random::GetIntRange(1, 4);
 
 	switch (mBambooDir)
 	{
 	case 1:
 		sc->SetTexture(game->GetTexture("Assets/bambooDown.png"));
+		while (mBambooColum == (Random::GetIntRange(0, 7)+1)%8 || mBambooColum == (Random::GetIntRange(0, 7)-1) % 8);
 		mBambooColum = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(StartX + TileSize / 2.0f + mBambooColum * TileSize, 0));
 		mDownSpeed = 500.0f;
@@ -48,6 +48,7 @@ Bamboo::Bamboo(class Game* game)
 
 	case 2:
 		sc->SetTexture(game->GetTexture("Assets/bambooUp.png"));
+		while (mBambooColum == (Random::GetIntRange(0, 7) + 1) % 8 || mBambooColum == (Random::GetIntRange(0, 7) - 1) % 8);
 		mBambooColum = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(StartX + TileSize / 2.0f + mBambooColum * TileSize, 768));
 		mDownSpeed = -500.0f;
@@ -55,6 +56,8 @@ Bamboo::Bamboo(class Game* game)
 
 	case 3:
 		sc->SetTexture(game->GetTexture("Assets/bambooRight.png"));
+		while (mBambooRow == (Random::GetIntRange(0, 7) + 1) % 8 || mBambooRow == (Random::GetIntRange(0, 7) - 1) % 8);
+		mBambooColum = Random::GetIntRange(0, 7);
 		mBambooRow = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(0, StartY + mBambooRow * TileSize));
 		mRightSpeed = 500.0f;
@@ -62,6 +65,7 @@ Bamboo::Bamboo(class Game* game)
 
 	case 4:
 		sc->SetTexture(game->GetTexture("Assets/bambooleft.png"));
+		while (mBambooRow == (Random::GetIntRange(0, 7) + 1) % 8 || mBambooRow == (Random::GetIntRange(0, 7) - 1) % 8);
 		mBambooRow = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(1024, StartY + mBambooRow * TileSize));
 		mRightSpeed = -500.0f;

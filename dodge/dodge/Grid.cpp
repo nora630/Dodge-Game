@@ -3,7 +3,6 @@
 // Copyright (C) 2017 Sanjay Madhav. All rights reserved.
 // 
 // Released under the BSD License
-// See LICENSE in root directory for full details.
 // ----------------------------------------------------------------
 
 #include "Grid.h"
@@ -14,8 +13,8 @@
 
 Grid::Grid(class Game* game)
 	:Actor(game)
-	, mNextBamboo(2.0f)
-	, mBambooTime(0.5f)
+	, mNextBamboo(1.5f)
+	, mBambooTime(0.25f)
 {
 	// 8 rows, 8 columns
 	mTiles.resize(NumRows);
@@ -42,7 +41,7 @@ void Grid::UpdateActor(float deltaTime)
 {
 	Actor::UpdateActor(deltaTime);
 	if (GetGame()->GetTime()>20000) {
-		mBambooTime = 1.0f;
+		mBambooTime = 0.125f;
 	}
 	
 	mNextBamboo -= deltaTime;
