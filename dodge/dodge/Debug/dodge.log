@@ -1,36 +1,10 @@
 ﻿  AnimSpriteComponent.cpp
   Bamboo.cpp
-C:\Users\sho_o\MyGame\dodge\dodge\Bamboo.cpp(78,45): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\sho_o\MyGame\dodge\dodge\Bamboo.cpp(79,43): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   Chikurin.cpp
-  CircleComponent.cpp
-  Component.cpp
   CryPlayer.cpp
   Font.cpp
   Game.cpp
   Grid.cpp
-  main.cpp
-  Actor.cpp
-  Math.cpp
-  Player.cpp
-  Random.cpp
-  RectangleComponent.cpp
-  Scene.cpp
-  SpriteComponent.cpp
   Tile.cpp
   コードを生成中...
-  dodge.vcxproj -> C:\Users\sho_o\MyGame\dodge\Debug\dodge.exe
-  ..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\x86\SDL2.dll
-  1 個のファイルをコピーしました
-  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x86\SDL2_image.dll
-  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x86\optional\libtiff-5.dll
-  ..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\x86\optional\libwebp-7.dll
-  3 個のファイルをコピーしました
-  ..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\x86\SDL2_ttf.dll
-  1 個のファイルをコピーしました
-  ..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\x86\SDL2_mixer.dll
-  ..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\x86\optional\libmodplug-1.dll
-  ..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\x86\optional\libogg-0.dll
-  ..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\x86\optional\libopus-0.dll
-  ..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\x86\optional\libopusfile-0.dll
-  5 個のファイルをコピーしました
+C:\Users\sho_o\MyGame\dodge\dodge\Bamboo.cpp : fatal  error C1090: PDB API の呼び出しに失敗しました。エラー コード '3': C:\Users\sho_o\MyGame\dodge\dodge\Debug\vc143.pdb

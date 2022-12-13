@@ -75,8 +75,8 @@ Bamboo::Bamboo(class Game* game)
 	}
 
 	mRectangle = new RectangleComponent(this);
-	mRectangle->SetTexHeight(sc->GetTexHeight()-80.0f);
-	mRectangle->SetTexWidth(sc->GetTexWidth()-80.0f);
+	mRectangle->SetTexHeight(sc->GetTexHeight()-80);
+	mRectangle->SetTexWidth(sc->GetTexWidth()-80);
 	mRectangle->SetMin(Vector2(GetPosition().x - mRectangle->GetTexWidth() * GetScale() / 2, GetPosition().y - mRectangle->GetTexHeight() * GetScale() / 2));
 	mRectangle->SetMax(Vector2(GetPosition().x + mRectangle->GetTexWidth() * GetScale() / 2, GetPosition().y + mRectangle->GetTexHeight() * GetScale() / 2));
 }

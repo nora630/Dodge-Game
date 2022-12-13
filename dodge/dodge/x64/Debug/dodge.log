@@ -1,13 +1,15 @@
-﻿  AnimSpriteComponent.cpp
+﻿  Actor.cpp
   Bamboo.cpp
-  CircleComponent.cpp
-  Component.cpp
+  Chikurin.cpp
+  CryPlayer.cpp
+  Font.cpp
   Game.cpp
   Grid.cpp
-  main.cpp
-  Actor.cpp
-  Math.cpp
   Player.cpp
+  Scene.cpp
+  SpriteComponent.cpp
   Tile.cpp
+  main.cpp
   コードを生成中...
-C:\Users\sho_o\MyGame\dodge\dodge\Actor.cpp : fatal  error C1090: PDB API の呼び出しに失敗しました。エラー コード '3': C:\Users\sho_o\MyGame\dodge\dodge\x64\Debug\vc143.pdb
+SDL2main.lib(SDL_windows_main.obj) : error LNK2019: 未解決の外部シンボル __imp_CommandLineToArgvW が関数 main_getcmdline で参照されました
+C:\Users\sho_o\MyGame\dodge\x64\Debug\dodge.exe : fatal error LNK1120: 1 件の未解決の外部参照

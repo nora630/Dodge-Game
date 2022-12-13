@@ -76,13 +76,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\include;..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\include;..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget);..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget);..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget);..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget);..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget);..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget);..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
@@ -99,20 +99,21 @@ xcopy "..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget)\*.
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\include;..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\include;..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget);..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget);..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget);..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget);..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget);..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
 xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
-xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y</Command>
+xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
+xcopy "..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,18 +122,19 @@ xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dl
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\include;..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\include;..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget);..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget);..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget);..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget);..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget);..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
 xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
-xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y</Command>
+xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
+xcopy "..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,20 +145,21 @@ xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dl
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\include;..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\include;..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\include;..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\include;..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget);..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget);..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget);..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget);..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget);..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "..\..\SDL2-devel-2.26.0-VC\SDL2-2.26.0\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
 xcopy "..\..\SDL2_image-devel-2.6.2-VC\SDL2_image-2.6.2\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
-xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y</Command>
+xcopy "..\..\SDL2_ttf-devel-2.20.1-VC\SDL2_ttf-2.20.1\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y
+xcopy "..\..\SDL2_mixer-devel-2.6.2-VC\SDL2_mixer-2.6.2\lib\$(PlatformTarget)\*.dll" "$(OutDir)" /i/s/y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
