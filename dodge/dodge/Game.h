@@ -74,5 +74,6 @@ private:
 	std::vector<class Bamboo*> mBamboos;
 	char mTime[50];
 	class Chikurin* mChikurin;
+	class Gameover* mGameover;
 	bool mGameSceneActive = false;
 };

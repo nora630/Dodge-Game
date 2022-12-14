@@ -19,6 +19,7 @@
 #include "RectangleComponent.h"
 #include "SDL_mixer.h"
 #include "chikurin.h"
+#include "Gameover.h"
 
 Game::Game()
 	:mWindow(nullptr)
@@ -145,6 +146,7 @@ void Game::ProcessInput()
 	else {
 		if (state[SDL_SCANCODE_RETURN] || state[SDL_SCANCODE_E])
 		{
+			UnloadResultScene();
 			LoadGameScene();
 			Mix_RewindMusic();
 			Mix_ResumeMusic();
@@ -311,16 +313,31 @@ void Game::UnloadGameScene()
 
 	Mix_PauseMusic();
 	//Mix_RewindMusic();
+
+	LoadResultScene();
 }
 
 void Game::LoadResultScene()
 {
-
+	mChikurin = new Chikurin(this);
+	mGameover = new Gameover(this);
 }
 
 void Game::UnloadResultScene()
 {
-	
+	while (!mActors.empty())
+	{
+		delete mActors.back();
+	}
+
+	// Destroy textures
+	for (auto i : mTextures)
+	{
+		SDL_DestroyTexture(i.second);
+	}
+	mTextures.clear();
+
+	mGameSceneActive = true;
 }
 
 void Game::Shutdown()

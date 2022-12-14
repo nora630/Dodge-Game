@@ -41,7 +41,7 @@ void Grid::UpdateActor(float deltaTime)
 {
 	Actor::UpdateActor(deltaTime);
 	if (GetGame()->GetTime()>20000) {
-		mBambooTime = 0.125f;
+		mBambooTime = 0.15f;
 	}
 	
 	mNextBamboo -= deltaTime;

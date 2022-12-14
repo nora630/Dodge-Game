@@ -1,15 +1,1 @@
-﻿  Actor.cpp
-  Bamboo.cpp
-  Chikurin.cpp
-  CryPlayer.cpp
-  Font.cpp
-  Game.cpp
-  Grid.cpp
-  Player.cpp
-  Scene.cpp
-  SpriteComponent.cpp
-  Tile.cpp
-  main.cpp
-  コードを生成中...
-SDL2main.lib(SDL_windows_main.obj) : error LNK2019: 未解決の外部シンボル __imp_CommandLineToArgvW が関数 main_getcmdline で参照されました
-C:\Users\sho_o\MyGame\dodge\x64\Debug\dodge.exe : fatal error LNK1120: 1 件の未解決の外部参照
+﻿

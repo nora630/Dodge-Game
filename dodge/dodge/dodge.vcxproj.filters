@@ -69,6 +69,9 @@
     <ClCompile Include="Chikurin.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Gameover.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -120,6 +123,9 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="chikurin.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameover.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>

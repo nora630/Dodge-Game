@@ -1,0 +1,5 @@
+﻿  Grid.cpp
+  Tile.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1096,5): error MSB6006: "link.exe" はコード 1120 を伴って終了しました。
+SDL2main.lib(SDL_windows_main.obj) : error LNK2001: 外部シンボル __imp__CommandLineToArgvW@8 は未解決です
+C:\Users\sho_o\MyGame\dodge\Release\dodge.exe : fatal error LNK1120: 1 件の未解決の外部参照

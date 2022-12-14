@@ -43,7 +43,14 @@ Bamboo::Bamboo(class Game* game)
 		while (mBambooColum == (Random::GetIntRange(0, 7)+1)%8 || mBambooColum == (Random::GetIntRange(0, 7)-1) % 8);
 		mBambooColum = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(StartX + TileSize / 2.0f + mBambooColum * TileSize, 0));
-		mDownSpeed = 500.0f;
+		if (GetGame()->GetTime() > 20000)
+		{
+			mDownSpeed = 300.0f;
+		}
+		else {
+			mDownSpeed = 500.0f;
+		}
+			
 		break;
 
 	case 2:
@@ -51,7 +58,13 @@ Bamboo::Bamboo(class Game* game)
 		while (mBambooColum == (Random::GetIntRange(0, 7) + 1) % 8 || mBambooColum == (Random::GetIntRange(0, 7) - 1) % 8);
 		mBambooColum = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(StartX + TileSize / 2.0f + mBambooColum * TileSize, 768));
-		mDownSpeed = -500.0f;
+		if (GetGame()->GetTime() > 20000)
+		{
+			mDownSpeed = -300.0f;
+		}
+		else {
+			mDownSpeed = -500.0f;
+		}
 		break;
 
 	case 3:
@@ -60,7 +73,13 @@ Bamboo::Bamboo(class Game* game)
 		mBambooColum = Random::GetIntRange(0, 7);
 		mBambooRow = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(0, StartY + mBambooRow * TileSize));
-		mRightSpeed = 500.0f;
+		if (GetGame()->GetTime() > 20000)
+		{
+			mRightSpeed = 300.0f;
+		}
+		else {
+			mRightSpeed = 500.0f;
+		}
 		break;
 
 	case 4:
@@ -68,7 +87,13 @@ Bamboo::Bamboo(class Game* game)
 		while (mBambooRow == (Random::GetIntRange(0, 7) + 1) % 8 || mBambooRow == (Random::GetIntRange(0, 7) - 1) % 8);
 		mBambooRow = Random::GetIntRange(0, 7);
 		SetPosition(Vector2(1024, StartY + mBambooRow * TileSize));
-		mRightSpeed = -500.0f;
+		if (GetGame()->GetTime() > 20000)
+		{
+			mRightSpeed = -300.0f;
+		}
+		else {
+			mRightSpeed = -500.0f;
+		}
 		break;
 	default:
 		break;
