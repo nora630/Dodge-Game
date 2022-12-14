@@ -19,5 +19,5 @@ Gameover::Gameover(class Game* game)
 
 void Gameover::UpdateTexture()
 {
-	mSprite->SetTexture(GetGame()->GetTexture("Assets/gameover.jpg"));
+	mSprite->SetTexture(GetGame()->GetTexture("Assets/gameover.png"));
 }
